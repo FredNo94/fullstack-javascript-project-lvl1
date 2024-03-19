@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/FredNo94/fullstack-javascript-project-lvl1#readme",
   "bin": {
-    "code": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-even.js"
   },
   "dependencies": {
     "eslint-config-airbnb-base": "^15.0.0",
