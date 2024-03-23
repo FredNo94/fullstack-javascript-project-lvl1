@@ -23,10 +23,10 @@ function getRandomValue(iterations, rangeValue) {
   return result;
 }
 
-// Получение корректныхответов для проверки ответов игрока
+// Получение корректных ответов для проверки ответов игрока
 function getCorrectRespones(randomValue) {
   const result = [];
-  randomValue.forEach((element) => {
+  randomValue.forEach(element => {
     result.push((element % 2 === 0) ? 'yes' : 'no');
   });
 
