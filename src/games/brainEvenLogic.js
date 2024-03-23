@@ -26,7 +26,7 @@ function getRandomValue(iterations, rangeValue) {
 // Получение корректных ответов для проверки ответов игрока
 function getCorrectRespones(randomValue) {
   const result = [];
-  randomValue.forEach(element => {
+  randomValue.forEach((element) => {
     result.push((element % 2 === 0) ? 'yes' : 'no');
   });
 

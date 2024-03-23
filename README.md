@@ -7,3 +7,6 @@ https://asciinema.org/a/dDyVbicyWMvErvNxucvthIJhL
 
 Аксинема с примером запуском игры brain-gcd:
 https://asciinema.org/a/SM1KumODQBKE4ZDHfg1mDZC2e
+
+Аксинема с примером запуском игры brain-progression:
+https://asciinema.org/a/0AZ2zSVoQYy0m3R3ogd1HFlZe
