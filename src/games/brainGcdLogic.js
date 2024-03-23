@@ -57,6 +57,8 @@ function getCorrectRespones(valueOne, valueTwo) {
     }
     maxDivisior -= 1;
   }
+
+  return maxDivisior;
 }
 
 export default playBrainGcd;

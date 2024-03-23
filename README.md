@@ -10,3 +10,6 @@ https://asciinema.org/a/SM1KumODQBKE4ZDHfg1mDZC2e
 
 Аксинема с примером запуском игры brain-progression:
 https://asciinema.org/a/0AZ2zSVoQYy0m3R3ogd1HFlZe
+
+Аксинема с примером запуском игры brain-prime:
+https://asciinema.org/a/EaBGn8KNMmOi67rBIBDzszFo9
