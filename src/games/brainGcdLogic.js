@@ -16,6 +16,10 @@ function getCorrectRespones(valueOne, valueTwo) {
   // Индекс для
   maxDivisior = minValue;
 
+  // Проверка для слуучая когда минимальное равно  0
+  if (maxDivisior === 0) {
+    return maxValue;
+  }
   // Цикл для нахождения максимального делителя
   for (let i = 0; i < minValue; i += 1) {
     if (maxValue % maxDivisior === 0 && minValue % maxDivisior === 0) {
