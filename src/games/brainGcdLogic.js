@@ -1,35 +1,5 @@
 import playGame from '../index.js';
 
-// Запуск игры brain-gcd
-function playBrainGcd() {
-  const questionForStartGame = 'Find the greatest common divisor of given numbers.';
-  const qtyRepeat = 3;
-  const maxValueForGame = 10;
-
-  const allRandomValues = getRandomValue(qtyRepeat, maxValueForGame);
-
-  const randomValues = allRandomValues[0];
-  const correctRespones = allRandomValues[1];
-
-  playGame(questionForStartGame, randomValues, correctRespones);
-}
-
-// Получение рандомных  значений вопросов и ответов для игры
-function getRandomValue(iterations, rangeValue) {
-  const resultQuestion = [];
-  const resultCorrectResponse = [];
-
-  for (let i = 0; i < iterations; i += 1) {
-    const valueOne = Math.floor(Math.random() * rangeValue);
-    const valueTwo = Math.floor(Math.random() * rangeValue);
-
-    resultQuestion.push(`${valueOne} ${valueTwo}`);
-    resultCorrectResponse.push(getCorrectRespones(valueOne, valueTwo));
-  }
-
-  return [resultQuestion, resultCorrectResponse];
-}
-
 // Получение корректных ответов для проверки ответов игрока
 function getCorrectRespones(valueOne, valueTwo) {
   let minValue = 0;
@@ -59,6 +29,36 @@ function getCorrectRespones(valueOne, valueTwo) {
   }
 
   return maxDivisior;
+}
+
+// Получение рандомных  значений вопросов и ответов для игры
+function getRandomValue(iterations, rangeValue) {
+  const resultQuestion = [];
+  const resultCorrectResponse = [];
+
+  for (let i = 0; i < iterations; i += 1) {
+    const valueOne = Math.floor(Math.random() * rangeValue);
+    const valueTwo = Math.floor(Math.random() * rangeValue);
+
+    resultQuestion.push(`${valueOne} ${valueTwo}`);
+    resultCorrectResponse.push(getCorrectRespones(valueOne, valueTwo));
+  }
+
+  return [resultQuestion, resultCorrectResponse];
+}
+
+// Запуск игры brain-gcd
+function playBrainGcd() {
+  const questionForStartGame = 'Find the greatest common divisor of given numbers.';
+  const qtyRepeat = 3;
+  const maxValueForGame = 10;
+
+  const allRandomValues = getRandomValue(qtyRepeat, maxValueForGame);
+
+  const randomValues = allRandomValues[0];
+  const correctRespones = allRandomValues[1];
+
+  playGame(questionForStartGame, randomValues, correctRespones);
 }
 
 export default playBrainGcd;

@@ -1,17 +1,5 @@
 import playGame from '../index.js';
 
-// Запуск игры BrainEven
-function playBrainEven() {
-  const questionForStartGame = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const qtyRepeat = 3;
-  const maxValue = 1000;
-
-  const randomValues = getRandomValue(qtyRepeat, maxValue);
-  const correctRespones = getCorrectRespones(randomValues);
-
-  playGame(questionForStartGame, randomValues, correctRespones);
-}
-
 // Получение рандомных  значений вопросов дляигры
 function getRandomValue(iterations, rangeValue) {
   const result = [];
@@ -31,6 +19,18 @@ function getCorrectRespones(randomValue) {
   });
 
   return result;
+}
+
+// Запуск игры BrainEven
+function playBrainEven() {
+  const questionForStartGame = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const qtyRepeat = 3;
+  const maxValue = 1000;
+
+  const randomValues = getRandomValue(qtyRepeat, maxValue);
+  const correctRespones = getCorrectRespones(randomValues);
+
+  playGame(questionForStartGame, randomValues, correctRespones);
 }
 
 export default playBrainEven;
