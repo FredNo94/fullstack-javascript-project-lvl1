@@ -12,11 +12,11 @@ function getStatusValue(randValue) {
 }
 
 // Получение рандомных  значений вопросов и ответов для игры
-function getRandomValue(rangeValue) {
+function getRandomValue(iterations, rangeValue) {
   const resultQuestion = [];
   const resultCorrectResponse = [];
 
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < iterations; i += 1) {
     const randValue = Math.floor(Math.random() * rangeValue);
 
     resultQuestion.push(randValue);
@@ -29,8 +29,9 @@ function getRandomValue(rangeValue) {
 // Запуск игры brain-prime
 function playBrainPrime() {
   const questionForPrimeGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const rangeValueForPrimeGame  = 100;
-  const allRandomValues = getRandomValue(rangeValueForPrimeGame);
+  const qtyRepeatForPrimeGame  = 3;
+  const rangeValueForPrimeGame  = 800;
+  const allRandomValues = getRandomValue(qtyRepeatForPrimeGame, rangeValueForPrimeGame);
 
   const randomValues = allRandomValues[0];
   const correctRespones = allRandomValues[1];

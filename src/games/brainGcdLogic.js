@@ -33,11 +33,11 @@ function getCorrectRespones(valueOne, valueTwo) {
 }
 
 // Получение рандомных  значений вопросов и ответов для игры
-function getRandomValue(rangeValue) {
+function getRandomValue(iterations, rangeValue) {
   const resultQuestion = [];
   const resultCorrectResponse = [];
 
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < iterations; i += 1) {
     const valueOne = Math.floor(Math.random() * rangeValue);
     const valueTwo = Math.floor(Math.random() * rangeValue);
 
@@ -51,9 +51,10 @@ function getRandomValue(rangeValue) {
 // Запуск игры brain-gcd
 function playBrainGcd() {
   const questionForGcdGame= 'Find the greatest common divisor of given numbers.';
+  const qtyRepeatForGcdGame = 3;
   const maxValueForGcdGame = 200;
 
-  const allRandomValues = getRandomValue(maxValueForGcdGame);
+  const allRandomValues = getRandomValue(qtyRepeatForGcdGame, maxValueForGcdGame);
 
   const randomValues = allRandomValues[0];
   const correctRespones = allRandomValues[1];

@@ -15,7 +15,7 @@ function playGame(questionForStartGame, randomValue, correctAnswer) {
       console.log(`'${answerUser}' is wrong answer ;(. Correct answer was '${correctAnswer[i]}'.`);
       console.log(`Let's try again, ${nameUser}!`);
       return;
-    } else {
+    } if (`${answerUser}` === `${correctAnswer[i]}`) {
       console.log('Correct!');
     }
   }

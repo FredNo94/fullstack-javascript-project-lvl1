@@ -26,11 +26,11 @@ function getProgression(sizeStepProgression, sizeProgression) {
 }
 
 // Получение рандомных  значений вопросов и ответов для игры
-function getRandomValue(minSizeProgression, maxSizeProgression) {
+function getRandomValue(iterations, minSizeProgression, maxSizeProgression) {
   const resultQuestion = [];
   const resultCorrectResponse = [];
 
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < iterations; i += 1) {
     const sizeStepProgression = Math.floor(Math.random() * 10) + 1;
     const sizeProgression = getRandValueBetween(minSizeProgression, maxSizeProgression);
 
@@ -49,10 +49,11 @@ function getRandomValue(minSizeProgression, maxSizeProgression) {
 // Запуск игры brain-progression
 function playBrainProgression() {
   const questionForProgGame = 'What number is missing in the progression?';
+  const qtyRepeatForProgGame = 3;
   const minSizeProgression = 5;
   const maxSizeProgression = 10;
 
-  const allRandomValues = getRandomValue(minSizeProgression, maxSizeProgression);
+  const allRandomValues = getRandomValue(qtyRepeatForProgGame, minSizeProgression, maxSizeProgression);
 
   const randomValues = allRandomValues[0];
   const correctRespones = allRandomValues[1];
