@@ -53,7 +53,11 @@ function playBrainProgression() {
   const minSizeProgression = 5;
   const maxSizeProgression = 10;
 
-  const allRandomValues = getRandomValue(qtyRepeatForProgGame, minSizeProgression, maxSizeProgression);
+  const allRandomValues = getRandomValue(
+    qtyRepeatForProgGame,
+    minSizeProgression,
+    maxSizeProgression,
+  );
 
   const randomValues = allRandomValues[0];
   const correctRespones = allRandomValues[1];

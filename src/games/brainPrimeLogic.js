@@ -29,8 +29,8 @@ function getRandomValue(iterations, rangeValue) {
 // Запуск игры brain-prime
 function playBrainPrime() {
   const questionForPrimeGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const qtyRepeatForPrimeGame  = 3;
-  const rangeValueForPrimeGame  = 800;
+  const qtyRepeatForPrimeGame = 3;
+  const rangeValueForPrimeGame = 800;
   const allRandomValues = getRandomValue(qtyRepeatForPrimeGame, rangeValueForPrimeGame);
 
   const randomValues = allRandomValues[0];

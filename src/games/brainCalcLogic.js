@@ -45,7 +45,7 @@ function getRandomValue(iterations, rangeValue) {
 function playBrainCalc() {
   const questionForCalc = 'What is the result of the expression?';
   const qtyRepeatCalcGame = 3;
-  const maxValueCalcGame  = 900;
+  const maxValueCalcGame = 900;
 
   const allRandomValues = getRandomValue(qtyRepeatCalcGame, maxValueCalcGame);
 

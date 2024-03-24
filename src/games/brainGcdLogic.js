@@ -1,11 +1,10 @@
 import playGame from '../index.js';
 
-// Получение корректных ответов для проверки ответов игрока
-function getCorrectRespones(valueOne, valueTwo) {
+// Вычисление максимального  и нимального числа
+function getMinAndMaxValue(valueOne, valueTwo) {
   let minValue;
   let maxValue;
-  let maxDivisior;
-  // Получение максимального и минимального числа
+
   if (valueOne <= valueTwo) {
     minValue = valueOne;
     maxValue = valueTwo;
@@ -13,23 +12,29 @@ function getCorrectRespones(valueOne, valueTwo) {
     minValue = valueTwo;
     maxValue = valueOne;
   }
-  // Индекс для
-  maxDivisior = minValue;
 
-  // Проверка для слуучая когда минимальное равно  0
-  if (maxDivisior === 0) {
+  return [minValue, maxValue];
+}
+// Получение корректных ответов для проверки ответов игрока
+function getCorrectRespones(sortValue) {
+  const minValue = sortValue[0];
+  const maxValue = sortValue[1];
+  let divisior = minValue;
+
+  // Проверка для случая когда минимальное равно  0
+  if (divisior === 0) {
     return maxValue;
   }
 
   // Цикл для нахождения максимального делителя
   for (let i = 0; i < minValue; i += 1) {
-    if (maxValue % maxDivisior === 0 && minValue % maxDivisior === 0) {
-      return maxDivisior;
+    if (maxValue % divisior === 0 && minValue % divisior === 0) {
+      return divisior;
     }
-    maxDivisior -= 1;
+    divisior -= 1;
   }
 
-  return maxDivisior;
+  return divisior;
 }
 
 // Получение рандомных  значений вопросов и ответов для игры
@@ -40,9 +45,11 @@ function getRandomValue(iterations, rangeValue) {
   for (let i = 0; i < iterations; i += 1) {
     const valueOne = Math.floor(Math.random() * rangeValue);
     const valueTwo = Math.floor(Math.random() * rangeValue);
+    const sortValue = getMinAndMaxValue(valueOne, valueTwo);
 
     resultQuestion.push(`${valueOne} ${valueTwo}`);
-    resultCorrectResponse.push(getCorrectRespones(valueOne, valueTwo));
+
+    resultCorrectResponse.push(getCorrectRespones(sortValue));
   }
 
   return [resultQuestion, resultCorrectResponse];
@@ -50,7 +57,7 @@ function getRandomValue(iterations, rangeValue) {
 
 // Запуск игры brain-gcd
 function playBrainGcd() {
-  const questionForGcdGame= 'Find the greatest common divisor of given numbers.';
+  const questionForGcdGame = 'Find the greatest common divisor of given numbers.';
   const qtyRepeatForGcdGame = 3;
   const maxValueForGcdGame = 200;
 
