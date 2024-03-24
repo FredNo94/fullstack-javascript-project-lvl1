@@ -1,10 +1,10 @@
 import playGame from '../index.js';
 
 // Получение рандомных  значений вопросов дляигры
-function getRandomValue(iterations, rangeValue) {
+function getRandomValue(rangeValue) {
   const result = [];
 
-  for (let i = 0; i < iterations; i += 1) {
+  for (let i = 0; i < 3; i += 1) {
     result.push(Math.floor(Math.random() * rangeValue));
   }
 
@@ -24,10 +24,9 @@ function getCorrectRespones(randomValue) {
 // Запуск игры BrainEven
 function playBrainEven() {
   const questionForEvenGame = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const qtyRepeatForEvenGame = 3;
   const maxValueForEvenGame = 1000;
 
-  const randomValues = getRandomValue(qtyRepeatForEvenGame, maxValueForEvenGame);
+  const randomValues = getRandomValue(maxValueForEvenGame);
   const correctRespones = getCorrectRespones(randomValues);
 
   playGame(questionForEvenGame, randomValues, correctRespones);
