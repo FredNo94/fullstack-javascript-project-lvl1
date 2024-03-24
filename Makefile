@@ -16,5 +16,3 @@ brain-progression:
 	node bin/brain-progression.js
 brain-prime:
 	node bin/brain-prime.js
-test-coverage:
-	npm test -- --coverage --coverageProvider=v8

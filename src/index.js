@@ -9,7 +9,7 @@ function playGame(questionForStartGame, randomValue, correctAnswer) {
   console.log(questionForStartGame);
 
   for (let i = 0; i < 3; i += 1) {
-    console.log('Question: ' + randomValue[i]);
+    console.log(`Question: ${randomValue[i]}`);
     answerUser = readlineSync.question('Your answer: ');
     if (`${answerUser}` !== `${correctAnswer[i]}`) {
       console.log(`'${answerUser}' is wrong answer ;(. Correct answer was '${correctAnswer[i]}'.`);
