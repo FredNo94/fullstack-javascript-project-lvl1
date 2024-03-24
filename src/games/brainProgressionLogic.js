@@ -48,17 +48,17 @@ function getRandomValue(iterations, minSizeProgression, maxSizeProgression) {
 
 // Запуск игры brain-progression
 function playBrainProgression() {
-  const questionForStartGame = 'What number is missing in the progression?';
-  const qtyRepeat = 3;
+  const questionForProgGame = 'What number is missing in the progression?';
+  const qtyRepeatForProgGame = 3;
   const minSizeProgression = 5;
   const maxSizeProgression = 10;
 
-  const allRandomValues = getRandomValue(qtyRepeat, minSizeProgression, maxSizeProgression);
+  const allRandomValues = getRandomValue(qtyRepeatForProgGame, minSizeProgression, maxSizeProgression);
 
   const randomValues = allRandomValues[0];
   const correctRespones = allRandomValues[1];
 
-  playGame(questionForStartGame, randomValues, correctRespones);
+  playGame(questionForProgGame, randomValues, correctRespones);
 }
 
 export default playBrainProgression;

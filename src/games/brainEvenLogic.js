@@ -23,14 +23,14 @@ function getCorrectRespones(randomValue) {
 
 // Запуск игры BrainEven
 function playBrainEven() {
-  const questionForStartGame = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const qtyRepeat = 3;
-  const maxValue = 1000;
+  const questionForEvenGame = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const qtyRepeatForEvenGame = 3;
+  const maxValueForEvenGame = 1000;
 
-  const randomValues = getRandomValue(qtyRepeat, maxValue);
+  const randomValues = getRandomValue(qtyRepeatForEvenGame, maxValueForEvenGame);
   const correctRespones = getCorrectRespones(randomValues);
 
-  playGame(questionForStartGame, randomValues, correctRespones);
+  playGame(questionForEvenGame, randomValues, correctRespones);
 }
 
 export default playBrainEven;

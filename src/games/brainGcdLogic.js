@@ -2,9 +2,9 @@ import playGame from '../index.js';
 
 // Получение корректных ответов для проверки ответов игрока
 function getCorrectRespones(valueOne, valueTwo) {
-  let minValue = 0;
-  let maxValue = 0;
-  let maxDivisior = 0;
+  let minValue;
+  let maxValue;
+  let maxDivisior;
   // Получение максимального и минимального числа
   if (valueOne <= valueTwo) {
     minValue = valueOne;
@@ -20,6 +20,7 @@ function getCorrectRespones(valueOne, valueTwo) {
   if (maxDivisior === 0) {
     return maxValue;
   }
+
   // Цикл для нахождения максимального делителя
   for (let i = 0; i < minValue; i += 1) {
     if (maxValue % maxDivisior === 0 && minValue % maxDivisior === 0) {
@@ -49,16 +50,16 @@ function getRandomValue(iterations, rangeValue) {
 
 // Запуск игры brain-gcd
 function playBrainGcd() {
-  const questionForStartGame = 'Find the greatest common divisor of given numbers.';
-  const qtyRepeat = 3;
-  const maxValueForGame = 10;
+  const questionForGcdGame= 'Find the greatest common divisor of given numbers.';
+  const qtyRepeatForGcdGame = 3;
+  const maxValueForGcdGame = 200;
 
-  const allRandomValues = getRandomValue(qtyRepeat, maxValueForGame);
+  const allRandomValues = getRandomValue(qtyRepeatForGcdGame, maxValueForGcdGame);
 
   const randomValues = allRandomValues[0];
   const correctRespones = allRandomValues[1];
 
-  playGame(questionForStartGame, randomValues, correctRespones);
+  playGame(questionForGcdGame, randomValues, correctRespones);
 }
 
 export default playBrainGcd;

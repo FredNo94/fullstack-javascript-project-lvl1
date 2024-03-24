@@ -43,16 +43,16 @@ function getRandomValue(iterations, rangeValue) {
 
 // Запуск игры BrainCalc
 function playBrainCalc() {
-  const question = 'What is the result of the expression?';
-  const qtyRepeat = 3;
-  const maxValue = 10;
+  const questionForCalc = 'What is the result of the expression?';
+  const qtyRepeatCalcGame = 3;
+  const maxValueCalcGame  = 900;
 
-  const allRandomValues = getRandomValue(qtyRepeat, maxValue);
+  const allRandomValues = getRandomValue(qtyRepeatCalcGame, maxValueCalcGame);
 
   const randomValues = allRandomValues[0];
   const correctRespones = allRandomValues[1];
 
-  playGame(question, randomValues, correctRespones);
+  playGame(questionForCalc, randomValues, correctRespones);
 }
 
 export default playBrainCalc;
