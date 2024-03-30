@@ -4,13 +4,16 @@
 
 ---
 
-###  Описание 
-Проект «Игры разума» — набор из пяти консольных игр, построенных по принципу популярных мобильных приложений для прокачки мозга. Каждая игра задает вопросы, на которые нужно дать правильные ответы. После трех правильных ответов считается, что игра пройдена. Неправильные ответы завершают игру и предлагают пройти ее заново. Игры:
+###  Discription 
+The Brain Games project is a set of five console games based on the principle of popular mobile brain—boosting applications. Each game asks questions that need to be answered correctly. After three correct answers, it is considered that the game is over. Incorrect answers end the game and offer to go through it again.
 
 ---
 
-### Установка 
-Выполнить команды: <br>
+### Installing the project 
+Use commands: <br>
+```bash
+git clone git@github.com:FredNo94/fullstack-javascript-project-lvl1.git
+```
 ```bash
 make install
 ```
@@ -20,37 +23,37 @@ sudo npm link
 
 ---
 
-###  Запуск игр
-Калькулятор. Арифметические выражения, которые необходимо вычислить
+###  Launching games
+Calculator. Arithmetic expressions that need to be calculated
 ```bash
 brain-calc
 ```
-Прогрессия. Поиск пропущенных чисел в последовательности чисел
+The progression. Searching for missing numbers in a sequence of numbers
 ```bash
 brain-progression
 ```
-Определение четного числа
+Determining an even number
 ```bash
 brain-even
 ```
-Определение наибольшего общего делителя
+Determining the largest common divisor
 ```bash
 brain-gcd
 ```
-Определение простого числа
+Definition of a prime number
 ```bash
 brain-prime
 ```
 ---
 
-### Аксинема с примером установки пакета, запуском игры:
+### Asciinema with an example of installing the package, launching the game:
 https://asciinema.org/a/dDyVbicyWMvErvNxucvthIJhL
 
-### Аксинема с примером запуском игры brain-gcd:
+### Asciinema with an example of running a brain-gcd game:
 https://asciinema.org/a/SM1KumODQBKE4ZDHfg1mDZC2e
 
-### Аксинема с примером запуском игры brain-progression:
+### Asciinema with an example of running a brain-progression game:
 https://asciinema.org/a/0AZ2zSVoQYy0m3R3ogd1HFlZe
 
-### Аксинема с примером запуском игры brain-prime:
+### Asciinema with an example of running a brain-prime game:
 https://asciinema.org/a/EaBGn8KNMmOi67rBIBDzszFo9

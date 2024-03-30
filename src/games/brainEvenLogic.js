@@ -1,17 +1,16 @@
 import playGame from '../index.js';
+import getRandomInRange from '../utils.js';
 
-// Получение рандомных  значений вопросов дляигры
 function getRandomValue(iterations, rangeValue) {
   const result = [];
 
   for (let i = 0; i < iterations; i += 1) {
-    result.push(Math.floor(Math.random() * rangeValue));
+    result.push(getRandomInRange(rangeValue));
   }
 
   return result;
 }
 
-// Получение корректных ответов для проверки ответов игрока
 function getCorrectRespones(randomValue) {
   const result = [];
   randomValue.forEach((element) => {
@@ -21,7 +20,6 @@ function getCorrectRespones(randomValue) {
   return result;
 }
 
-// Запуск игры BrainEven
 function playBrainEven() {
   const questionForEvenGame = 'Answer "yes" if the number is even, otherwise answer "no".';
   const qtyRepeatForEvenGame = 3;

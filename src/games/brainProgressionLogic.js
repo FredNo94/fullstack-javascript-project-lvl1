@@ -1,16 +1,11 @@
 import playGame from '../index.js';
+import getRandomInRange from '../utils.js';
 
-// Функция для получения слуйчайного значения в диапозоне чисел
-function getRandValueBetween(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-// Функция получения прогрессии и корректного ответа для  проверки
 function getProgression(sizeStepProgression, sizeProgression) {
   let correctAnswerForProg;
   let result = '';
   let valueProg = sizeStepProgression;
-  const randIndexValueProg = getRandValueBetween(0, sizeProgression);
+  const randIndexValueProg = getRandomInRange(0, sizeProgression);
 
   for (let i = 0; i <= sizeProgression; i += 1) {
     if (randIndexValueProg === i) {
@@ -25,14 +20,13 @@ function getProgression(sizeStepProgression, sizeProgression) {
   return [result, correctAnswerForProg];
 }
 
-// Получение рандомных  значений вопросов и ответов для игры
 function getRandomValue(iterations, minSizeProgression, maxSizeProgression) {
   const resultQuestion = [];
   const resultCorrectResponse = [];
 
   for (let i = 0; i < iterations; i += 1) {
     const sizeStepProgression = Math.floor(Math.random() * 10) + 1;
-    const sizeProgression = getRandValueBetween(minSizeProgression, maxSizeProgression);
+    const sizeProgression = getRandomInRange(minSizeProgression, maxSizeProgression);
 
     const progressionWithAnswer = getProgression(
       sizeStepProgression,
@@ -46,7 +40,6 @@ function getRandomValue(iterations, minSizeProgression, maxSizeProgression) {
   return [resultQuestion, resultCorrectResponse];
 }
 
-// Запуск игры brain-progression
 function playBrainProgression() {
   const questionForProgGame = 'What number is missing in the progression?';
   const qtyRepeatForProgGame = 3;

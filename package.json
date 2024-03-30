@@ -1,11 +1,9 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/FredNo94/fullstack-javascript-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/FredNo94/fullstack-javascript-project-lvl1/actions)",
-  "main": "index.js",
+  "description": "This package using for install and play The Brain Games project",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "repository": {
@@ -32,7 +30,6 @@
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
-    "coveralls": "^3.1.1",
-    "eslint": "^8.57.0"
+    "coveralls": "^3.1.1"
   }
 }

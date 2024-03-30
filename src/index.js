@@ -1,10 +1,10 @@
 import readlineSync from 'readline-sync';
+import startGame from './cli.js';
 
-// Общая функция прохождения игры
 function playGame(questionForStartGame, randomValue, correctAnswer) {
   let answerUser;
-  const nameUser = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${nameUser}`);
+
+  const nameUser = startGame();
 
   console.log(questionForStartGame);
 

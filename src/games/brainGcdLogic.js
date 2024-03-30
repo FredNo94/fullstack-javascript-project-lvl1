@@ -1,6 +1,6 @@
 import playGame from '../index.js';
+import getRandomInRange from '../utils.js';
 
-// Вычисление максимального  и нимального числа
 function getMinAndMaxValue(valueOne, valueTwo) {
   let minValue;
   let maxValue;
@@ -15,18 +15,16 @@ function getMinAndMaxValue(valueOne, valueTwo) {
 
   return [minValue, maxValue];
 }
-// Получение корректных ответов для проверки ответов игрока
+
 function getCorrectRespones(sortValue) {
   const minValue = sortValue[0];
   const maxValue = sortValue[1];
   let divisior = minValue;
 
-  // Проверка для случая когда минимальное равно  0
   if (divisior === 0) {
     return maxValue;
   }
 
-  // Цикл для нахождения максимального делителя
   for (let i = 0; i < minValue; i += 1) {
     if (maxValue % divisior === 0 && minValue % divisior === 0) {
       return divisior;
@@ -37,14 +35,14 @@ function getCorrectRespones(sortValue) {
   return divisior;
 }
 
-// Получение рандомных  значений вопросов и ответов для игры
 function getRandomValue(iterations, rangeValue) {
   const resultQuestion = [];
   const resultCorrectResponse = [];
 
   for (let i = 0; i < iterations; i += 1) {
-    const valueOne = Math.floor(Math.random() * rangeValue);
-    const valueTwo = Math.floor(Math.random() * rangeValue);
+    const valueOne = getRandomInRange(rangeValue);
+    const valueTwo = getRandomInRange(rangeValue);
+
     const sortValue = getMinAndMaxValue(valueOne, valueTwo);
 
     resultQuestion.push(`${valueOne} ${valueTwo}`);
@@ -55,7 +53,6 @@ function getRandomValue(iterations, rangeValue) {
   return [resultQuestion, resultCorrectResponse];
 }
 
-// Запуск игры brain-gcd
 function playBrainGcd() {
   const questionForGcdGame = 'Find the greatest common divisor of given numbers.';
   const qtyRepeatForGcdGame = 3;
