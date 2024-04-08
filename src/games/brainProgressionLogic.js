@@ -3,16 +3,21 @@ import getRandomInRange from '../utils.js';
 
 const generateProgression = (start, step, length) => {
   const progression = [];
+  let progressionString = '';
+  const indexItem = getRandomInRange(5, length - 2);
 
   for (let i = 0; i < length; i += 1) {
     progression.push(start + step * i);
   }
 
-  const indexItem = getRandomInRange(5, length - 2);
   const changeItem = progression[indexItem];
   progression[indexItem] = '..';
 
-  return [progression, `${changeItem}`];
+  for (const item of progression) {
+    progressionString += item + ' ';
+  }
+
+  return [progressionString, `${changeItem}`];
 };
 
 const generateRound = () => {
