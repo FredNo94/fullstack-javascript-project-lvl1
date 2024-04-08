@@ -13,8 +13,8 @@ const generateProgression = (start, step, length) => {
   const changeItem = progression[indexItem];
   progression[indexItem] = '..';
 
-  for (const item of progression) {
-    progressionString += item + ' ';
+  for (let i = 0; i < progression.length; i += 1) {
+    progressionString += `${progression[i]} `;
   }
 
   return [progressionString, `${changeItem}`];
