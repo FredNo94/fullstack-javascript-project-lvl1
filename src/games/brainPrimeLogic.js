@@ -11,30 +11,16 @@ function getStatusValue(randValue) {
   return type;
 }
 
-function getRandomValue(iterations, rangeValue) {
-  const resultQuestion = [];
-  const resultCorrectResponse = [];
+const generateRound = () => {
+  const rangeValue = 300;
+  const randValue = getRandomInRange(rangeValue);
 
-  for (let i = 0; i < iterations; i += 1) {
-    const randValue = getRandomInRange(rangeValue);
+  const answer = getStatusValue(randValue);
+  const question = randValue;
 
-    resultQuestion.push(randValue);
-    resultCorrectResponse.push(getStatusValue(randValue));
-  }
+  return [question, answer];
+};
 
-  return [resultQuestion, resultCorrectResponse];
-}
-
-function playBrainPrime() {
-  const questionForPrimeGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const qtyRepeatForPrimeGame = 3;
-  const rangeValueForPrimeGame = 800;
-  const allRandomValues = getRandomValue(qtyRepeatForPrimeGame, rangeValueForPrimeGame);
-
-  const randomValues = allRandomValues[0];
-  const correctRespones = allRandomValues[1];
-
-  playGame(questionForPrimeGame, randomValues, correctRespones);
-}
-
-export default playBrainPrime;
+export default () => {
+  playGame('Answer "yes" if given number is prime. Otherwise answer "no".', generateRound);
+};

@@ -1,34 +1,18 @@
 import playGame from '../index.js';
 import getRandomInRange from '../utils.js';
 
-function getRandomValue(iterations, rangeValue) {
-  const result = [];
+const isEven = (num) => num % 2 === 0;
 
-  for (let i = 0; i < iterations; i += 1) {
-    result.push(getRandomInRange(rangeValue));
-  }
+const generateRound = () => {
+  const maxValueCalcGame = 1000;
 
-  return result;
-}
+  const num1 = getRandomInRange(maxValueCalcGame);
+  const answer = isEven(num1) ? 'yes' : 'no';
+  const question = String(num1);
 
-function getCorrectRespones(randomValue) {
-  const result = [];
-  randomValue.forEach((element) => {
-    result.push((element % 2 === 0) ? 'yes' : 'no');
-  });
+  return [question, answer];
+};
 
-  return result;
-}
-
-function playBrainEven() {
-  const questionForEvenGame = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const qtyRepeatForEvenGame = 3;
-  const maxValueForEvenGame = 1000;
-
-  const randomValues = getRandomValue(qtyRepeatForEvenGame, maxValueForEvenGame);
-  const correctRespones = getCorrectRespones(randomValues);
-
-  playGame(questionForEvenGame, randomValues, correctRespones);
-}
-
-export default playBrainEven;
+export default () => {
+  playGame('Answer "yes" if the number is even, otherwise answer "no".', generateRound);
+};

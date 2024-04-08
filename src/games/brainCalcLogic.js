@@ -1,22 +1,17 @@
 import playGame from '../index.js';
 import getRandomInRange from '../utils.js';
 
-function getCorrectRespone(valueOne, valueTwo, operation) {
-  let result = 0;
-  switch (operation) {
-    case '*':
-      result = valueOne * valueTwo;
-      break;
-    case '-':
-      result = valueOne - valueTwo;
-      break;
+function getCorrectRespone(num1, num2, operator) {
+  switch (operator) {
     case '+':
-      result = valueOne + valueTwo;
-      break;
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
     default:
-      console.log('Sorry, operation notfound');
+      throw new Error(`Invalid operator - ${operator}`);
   }
-  return result;
 }
 
 function getRandomOperation(index) {
@@ -24,33 +19,19 @@ function getRandomOperation(index) {
   return arrayOperation[index];
 }
 
-function getRandomValue(iterations, rangeValue) {
-  const resultQuestion = [];
-  const resultCorrectResponse = [];
-
-  for (let i = 0; i < iterations; i += 1) {
-    const valueOne = getRandomInRange(rangeValue);
-    const valueTwo = getRandomInRange(rangeValue);
-    const operation = getRandomOperation(getRandomInRange(3));
-
-    resultQuestion.push(`${valueOne} ${operation} ${valueTwo}`);
-    resultCorrectResponse.push(getCorrectRespone(valueOne, valueTwo, operation));
-  }
-
-  return [resultQuestion, resultCorrectResponse];
-}
-
-function playBrainCalc() {
-  const questionForCalc = 'What is the result of the expression?';
-  const qtyRepeatCalcGame = 3;
+const generateRound = () => {
   const maxValueCalcGame = 900;
 
-  const allRandomValues = getRandomValue(qtyRepeatCalcGame, maxValueCalcGame);
+  const num1 = getRandomInRange(maxValueCalcGame);
+  const num2 = getRandomInRange(maxValueCalcGame);
+  const operator = getRandomOperation(getRandomInRange(3));
 
-  const randomValues = allRandomValues[0];
-  const correctRespones = allRandomValues[1];
+  const question = `${num1} ${operator} ${num2}`;
+  const answer = String(getCorrectRespone(num1, num2, operator));
 
-  playGame(questionForCalc, randomValues, correctRespones);
-}
+  return [question, answer];
+};
 
-export default playBrainCalc;
+export default () => {
+  playGame('What is the result of the expression?', generateRound);
+};

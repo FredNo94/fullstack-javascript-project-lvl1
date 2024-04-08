@@ -1,18 +1,17 @@
 import readlineSync from 'readline-sync';
 import startGame from './cli.js';
 
-function playGame(questionForStartGame, randomValue, correctAnswer) {
-  let answerUser;
-
+function playGame(questionForStartGame, generateRound) {
   const nameUser = startGame();
 
   console.log(questionForStartGame);
 
   for (let i = 0; i < 3; i += 1) {
-    console.log(`Question: ${randomValue[i]}`);
-    answerUser = readlineSync.question('Your answer: ');
-    if (`${answerUser}` !== `${correctAnswer[i]}`) {
-      console.log(`'${answerUser}' is wrong answer ;(. Correct answer was '${correctAnswer[i]}'.`);
+    const [question, answer] = generateRound();
+    console.log(`Question: ${question}`);
+    const answerUser = readlineSync.question('Your answer: ');
+    if (answerUser !== answer) {
+      console.log(`'${answerUser}' is wrong answer ;(. Correct answer was '${answer}'.`);
       console.log(`Let's try again, ${nameUser}!`);
       return;
     }

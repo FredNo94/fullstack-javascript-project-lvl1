@@ -1,61 +1,32 @@
 import playGame from '../index.js';
 import getRandomInRange from '../utils.js';
 
-function getProgression(sizeStepProgression, sizeProgression) {
-  let correctAnswerForProg;
-  let result = '';
-  let valueProg = sizeStepProgression;
-  const randIndexValueProg = getRandomInRange(0, sizeProgression);
+const generateProgression = (start, step, length) => {
+  const progression = [];
 
-  for (let i = 0; i <= sizeProgression; i += 1) {
-    if (randIndexValueProg === i) {
-      result += '.. ';
-      correctAnswerForProg = valueProg;
-      valueProg += sizeStepProgression;
-    } else {
-      result += `${valueProg} `;
-      valueProg += sizeStepProgression;
-    }
-  }
-  return [result, correctAnswerForProg];
-}
-
-function getRandomValue(iterations, minSizeProgression, maxSizeProgression) {
-  const resultQuestion = [];
-  const resultCorrectResponse = [];
-
-  for (let i = 0; i < iterations; i += 1) {
-    const sizeStepProgression = Math.floor(Math.random() * 10) + 1;
-    const sizeProgression = getRandomInRange(minSizeProgression, maxSizeProgression);
-
-    const progressionWithAnswer = getProgression(
-      sizeStepProgression,
-      sizeProgression,
-    );
-
-    resultQuestion.push(progressionWithAnswer[0]);
-    resultCorrectResponse.push(progressionWithAnswer[1]);
+  for (let i = 0; i < length; i += 1) {
+    progression.push(start + step * i);
   }
 
-  return [resultQuestion, resultCorrectResponse];
-}
+  const indexItem = getRandomInRange(5, length - 2);
+  const changeItem = progression[indexItem];
+  progression[indexItem] = '..';
 
-function playBrainProgression() {
-  const questionForProgGame = 'What number is missing in the progression?';
-  const qtyRepeatForProgGame = 3;
-  const minSizeProgression = 5;
-  const maxSizeProgression = 10;
+  return [progression, `${changeItem}`];
+};
 
-  const allRandomValues = getRandomValue(
-    qtyRepeatForProgGame,
-    minSizeProgression,
-    maxSizeProgression,
-  );
+const generateRound = () => {
+  const maxValueProgression = 300;
+  const maxLengthProg = 10;
+  const maxStepProg = 50;
 
-  const randomValues = allRandomValues[0];
-  const correctRespones = allRandomValues[1];
+  const startProgression = getRandomInRange(0, maxValueProgression);
+  const stepProgression = getRandomInRange(0, maxStepProg);
+  const sizeProgression = getRandomInRange(5, maxLengthProg);
 
-  playGame(questionForProgGame, randomValues, correctRespones);
-}
+  return generateProgression(startProgression, stepProgression, sizeProgression);
+};
 
-export default playBrainProgression;
+export default () => {
+  playGame('What number is missing in the progression?', generateRound);
+};

@@ -1,69 +1,24 @@
 import playGame from '../index.js';
 import getRandomInRange from '../utils.js';
 
-function getMinAndMaxValue(valueOne, valueTwo) {
-  let minValue;
-  let maxValue;
-
-  if (valueOne <= valueTwo) {
-    minValue = valueOne;
-    maxValue = valueTwo;
-  } else {
-    minValue = valueTwo;
-    maxValue = valueOne;
+const getGcd = (num1, num2) => {
+  if (num2 === 0) {
+    return num1;
   }
+  return getGcd(num2, num1 % num2);
+};
 
-  return [minValue, maxValue];
-}
+const generateRound = () => {
+  const rangeValue = 20;
+  const valueOne = getRandomInRange(rangeValue);
+  const valueTwo = getRandomInRange(rangeValue);
 
-function getCorrectRespones(sortValue) {
-  const minValue = sortValue[0];
-  const maxValue = sortValue[1];
-  let divisior = minValue;
+  const answer = getGcd(valueOne, valueTwo);
+  const question = `${valueOne}  ${valueTwo}`;
 
-  if (divisior === 0) {
-    return maxValue;
-  }
+  return [question, `${answer}`];
+};
 
-  for (let i = 0; i < minValue; i += 1) {
-    if (maxValue % divisior === 0 && minValue % divisior === 0) {
-      return divisior;
-    }
-    divisior -= 1;
-  }
-
-  return divisior;
-}
-
-function getRandomValue(iterations, rangeValue) {
-  const resultQuestion = [];
-  const resultCorrectResponse = [];
-
-  for (let i = 0; i < iterations; i += 1) {
-    const valueOne = getRandomInRange(rangeValue);
-    const valueTwo = getRandomInRange(rangeValue);
-
-    const sortValue = getMinAndMaxValue(valueOne, valueTwo);
-
-    resultQuestion.push(`${valueOne} ${valueTwo}`);
-
-    resultCorrectResponse.push(getCorrectRespones(sortValue));
-  }
-
-  return [resultQuestion, resultCorrectResponse];
-}
-
-function playBrainGcd() {
-  const questionForGcdGame = 'Find the greatest common divisor of given numbers.';
-  const qtyRepeatForGcdGame = 3;
-  const maxValueForGcdGame = 200;
-
-  const allRandomValues = getRandomValue(qtyRepeatForGcdGame, maxValueForGcdGame);
-
-  const randomValues = allRandomValues[0];
-  const correctRespones = allRandomValues[1];
-
-  playGame(questionForGcdGame, randomValues, correctRespones);
-}
-
-export default playBrainGcd;
+export default () => {
+  playGame('Find the greatest common divisor of given numbers.', generateRound);
+};
