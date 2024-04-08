@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import startGame from './cli.js';
 
-function playGame(questionForStartGame, generateRound) {
+function runEngine(questionForStartGame, generateRound) {
   const nameUser = startGame();
 
   console.log(questionForStartGame);
@@ -21,4 +21,4 @@ function playGame(questionForStartGame, generateRound) {
   console.log(`Congratulations, ${nameUser}!`);
 }
 
-export default playGame;
+export default runEngine;

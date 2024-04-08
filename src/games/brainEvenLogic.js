@@ -1,4 +1,4 @@
-import playGame from '../index.js';
+import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
 const isEven = (num) => num % 2 === 0;
@@ -14,5 +14,5 @@ const generateRound = () => {
 };
 
 export default () => {
-  playGame('Answer "yes" if the number is even, otherwise answer "no".', generateRound);
+  runEngine('Answer "yes" if the number is even, otherwise answer "no".', generateRound);
 };

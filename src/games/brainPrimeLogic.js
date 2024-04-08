@@ -1,4 +1,4 @@
-import playGame from '../index.js';
+import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
 function getStatusValue(randValue) {
@@ -22,5 +22,5 @@ const generateRound = () => {
 };
 
 export default () => {
-  playGame('Answer "yes" if given number is prime. Otherwise answer "no".', generateRound);
+  runEngine('Answer "yes" if given number is prime. Otherwise answer "no".', generateRound);
 };

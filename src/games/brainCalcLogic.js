@@ -1,4 +1,4 @@
-import playGame from '../index.js';
+import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
 function getCorrectRespone(num1, num2, operator) {
@@ -33,5 +33,5 @@ const generateRound = () => {
 };
 
 export default () => {
-  playGame('What is the result of the expression?', generateRound);
+  runEngine('What is the result of the expression?', generateRound);
 };

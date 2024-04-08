@@ -1,4 +1,4 @@
-import playGame from '../index.js';
+import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
 const generateProgression = (start, step, length) => {
@@ -28,5 +28,5 @@ const generateRound = () => {
 };
 
 export default () => {
-  playGame('What number is missing in the progression?', generateRound);
+  runEngine('What number is missing in the progression?', generateRound);
 };
