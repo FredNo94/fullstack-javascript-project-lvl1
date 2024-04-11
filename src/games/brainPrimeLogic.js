@@ -2,20 +2,19 @@ import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
 function getStatusValue(randValue) {
-  let type = 'yes';
   for (let i = 2; i < randValue; i += 1) {
     if (randValue % i === 0) {
-      type = 'no';
+      return false;
     }
   }
-  return type;
+  return true;
 }
 
 const generateRound = () => {
   const rangeValue = 300;
   const randValue = getRandomInRange(rangeValue);
 
-  const answer = getStatusValue(randValue);
+  const answer = getStatusValue(randValue) ? 'yes' : 'no';
   const question = randValue;
 
   return [question, answer];

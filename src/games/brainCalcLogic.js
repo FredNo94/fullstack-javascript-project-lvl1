@@ -14,9 +14,9 @@ function getCorrectRespone(num1, num2, operator) {
   }
 }
 
-function getRandomOperation(index) {
-  const arrayOperation = ['*', '+', '-'];
-  return arrayOperation[index];
+function getRandomOperator() {
+  const operators = ['*', '+', '-'];
+  return operators[getRandomInRange(0, operators.length - 1)];
 }
 
 const generateRound = () => {
@@ -24,7 +24,7 @@ const generateRound = () => {
 
   const num1 = getRandomInRange(maxValueCalcGame);
   const num2 = getRandomInRange(maxValueCalcGame);
-  const operator = getRandomOperation(getRandomInRange(3));
+  const operator = getRandomOperator();
 
   const question = `${num1} ${operator} ${num2}`;
   const answer = String(getCorrectRespone(num1, num2, operator));

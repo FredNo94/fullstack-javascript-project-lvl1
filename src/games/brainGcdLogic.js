@@ -13,10 +13,10 @@ const generateRound = () => {
   const valueOne = getRandomInRange(rangeValue);
   const valueTwo = getRandomInRange(rangeValue);
 
-  const answer = getGcd(valueOne, valueTwo);
+  const answer = `${getGcd(valueOne, valueTwo)}`;
   const question = `${valueOne} ${valueTwo}`;
 
-  return [question, `${answer}`];
+  return [question, answer];
 };
 
 export default () => {

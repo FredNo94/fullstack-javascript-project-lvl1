@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "This package using for install and play The Brain Games project",
   "type": "module",
-  "scripts": {
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
-  },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FredNo94/fullstack-javascript-project-lvl1.git"
@@ -28,8 +26,5 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "readline-sync": "^1.4.10"
-  },
-  "devDependencies": {
-    "coveralls": "^3.1.1"
   }
 }
